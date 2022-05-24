@@ -5,13 +5,14 @@
 .horizontalDiv {
     display: flex;
     flex-direction: column;
+
 }
 
-.gridSquare {
+/* .gridSquare {
     background-color: blueviolet;
-    width: 20px;
-    height: 20px;
-}
+    width: 1.42vmin;
+    height: 1.42vmin;
+} */
 
 .hovered {
     background-color: chocolate;
