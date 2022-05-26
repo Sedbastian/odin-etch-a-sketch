@@ -19,7 +19,7 @@ function nuevaHoja(squaresPerSide) {
                 width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
             gridSquare.addEventListener("mouseover", () => {gridSquare.setAttribute("style", 
                 `background-color:chocolate; 
-                width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}2vmin;`)});
+                width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`)});
             horizontalDiv.appendChild(gridSquare);
         }
         mainDiv.appendChild(horizontalDiv);
