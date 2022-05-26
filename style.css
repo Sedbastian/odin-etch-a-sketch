@@ -1,12 +1,12 @@
-#mainDiv {
+/* #mainDiv {
     display: flex;
-}
+} */
 
-.horizontalDiv {
+/* .horizontalDiv {
     display: flex;
     flex-direction: column;
 
-}
+} */
 
 /* .gridSquare {
     background-color: blueviolet;
@@ -14,6 +14,6 @@
     height: 1.42vmin;
 } */
 
-.hovered {
+/* .hovered {
     background-color: chocolate;
-}
+} */
