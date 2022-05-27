@@ -1,5 +1,6 @@
 let ArcoirisPrendido = false;
 let squaresPerSide = 16;
+let colorLapiz = "#D2691E";
 
 function nuevaHoja(squaresPerSide) {
     let squareSide = (100 / squaresPerSide) * .91;
@@ -26,14 +27,15 @@ function nuevaHoja(squaresPerSide) {
                     rojo = Math.floor(Math.random() * 255);
                     verde = Math.floor(Math.random() * 255);
                     azul = Math.floor(Math.random() * 255);
+                    gridSquare.setAttribute("style", 
+                        `background-color: rgb(${rojo}, ${verde}, ${azul}); 
+                         width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
                 } else {
-                    rojo = 210;
-                    verde = 105;
-                    azul = 30;
+                    gridSquare.setAttribute("style", 
+                        `background-color: ${colorLapiz}; 
+                        width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
                     }
-                gridSquare.setAttribute("style", 
-                `background-color: rgb(${rojo}, ${verde}, ${azul}); 
-                width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`)
+                
                 });
 
             horizontalDiv.appendChild(gridSquare);
@@ -58,8 +60,20 @@ function Arcoiris() {
     nuevaHoja(squaresPerSide);
 }
 
+function nuevoColorLapiz() {
+    colorLapiz = event.target.value;
+    console.log(colorLapiz);
+    console.log(typeof(colorLapiz));
+    let cuerpa = document.querySelector("body");
+    cuerpa.removeChild(mainDiv);
+    nuevaHoja(squaresPerSide);
+}
+
 let botonNuevaHoja = document.querySelector("#NuevaHoja");
 botonNuevaHoja.addEventListener("click", cambiarCantidadPixeles);
 
 let botonArcoiris = document.querySelector("#Arcoiris");
 botonArcoiris.addEventListener("click", Arcoiris);
+
+let seleccionadorColorLapiz = document.querySelector("#colorLapiz");
+seleccionadorColorLapiz.addEventListener("input", nuevoColorLapiz);
