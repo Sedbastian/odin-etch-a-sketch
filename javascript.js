@@ -17,9 +17,14 @@ function nuevaHoja(squaresPerSide) {
             gridSquare.setAttribute("style", 
                 `background-color:blueviolet; 
                 width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
-            gridSquare.addEventListener("mouseover", () => {gridSquare.setAttribute("style", 
-                `background-color:chocolate; 
-                width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}2vmin;`)});
+            gridSquare.addEventListener("mouseover", () => {
+                let randomR = Math.floor(Math.random() * 255);
+                let randomG = Math.floor(Math.random() * 255);
+                let randomB = Math.floor(Math.random() * 255);
+                gridSquare.setAttribute("style", 
+                `background-color: rgb(${randomR}, ${randomG}, ${randomB}); 
+                width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`)
+                });
             horizontalDiv.appendChild(gridSquare);
         }
         mainDiv.appendChild(horizontalDiv);
