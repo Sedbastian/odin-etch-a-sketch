@@ -1,4 +1,5 @@
 let ArcoirisPrendido = false;
+let squaresPerSide = 16;
 
 function nuevaHoja(squaresPerSide) {
     let squareSide = (100 / squaresPerSide) * .91;
@@ -41,22 +42,24 @@ function nuevaHoja(squaresPerSide) {
     };
 };
 
-nuevaHoja(16);
+nuevaHoja(squaresPerSide);
 
-function borrarYnuevaHoja() {
+function cambiarCantidadPixeles() {
     let cuerpa = document.querySelector("body");
     cuerpa.removeChild(mainDiv);
-    let squaresPerSide = parseInt(prompt("¿Cuantos pixeles por lado?", "16"));
+    squaresPerSide = parseInt(prompt("¿Cuantos pixeles por lado?", "16"));
     nuevaHoja(squaresPerSide);
 };
 
 function Arcoiris() {
-    ArcoirisPrendido = true;
-    borrarYnuevaHoja();
+    let cuerpa = document.querySelector("body");
+    cuerpa.removeChild(mainDiv);
+    ArcoirisPrendido = !ArcoirisPrendido;
+    nuevaHoja(squaresPerSide);
 }
 
 let botonNuevaHoja = document.querySelector("#NuevaHoja");
-botonNuevaHoja.addEventListener("click", borrarYnuevaHoja);
+botonNuevaHoja.addEventListener("click", cambiarCantidadPixeles);
 
 let botonArcoiris = document.querySelector("#Arcoiris");
 botonArcoiris.addEventListener("click", Arcoiris);
