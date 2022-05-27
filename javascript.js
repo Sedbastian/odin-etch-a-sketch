@@ -1,6 +1,7 @@
 let ArcoirisPrendido = false;
 let squaresPerSide = 16;
-let colorLapiz = "#D2691E";
+let colorLapiz = "#d2691e";
+let colorFondo = "#8a2be2"
 
 function nuevaHoja(squaresPerSide) {
     let squareSide = (100 / squaresPerSide) * .91;
@@ -19,7 +20,7 @@ function nuevaHoja(squaresPerSide) {
             for (let i = 1; i < squaresPerSide + 1; i++) {
             let gridSquare = document.createElement("div");
             gridSquare.setAttribute("style", 
-                `background-color:blueviolet; 
+                `background-color: ${colorFondo}; 
                 width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
             gridSquare.addEventListener("mouseover", () => {
                 let rojo, verde, azul;
@@ -62,8 +63,13 @@ function Arcoiris() {
 
 function nuevoColorLapiz() {
     colorLapiz = event.target.value;
-    console.log(colorLapiz);
-    console.log(typeof(colorLapiz));
+    let cuerpa = document.querySelector("body");
+    cuerpa.removeChild(mainDiv);
+    nuevaHoja(squaresPerSide);
+}
+
+function nuevoColorFondo() {
+    colorFondo = event.target.value;
     let cuerpa = document.querySelector("body");
     cuerpa.removeChild(mainDiv);
     nuevaHoja(squaresPerSide);
@@ -77,3 +83,6 @@ botonArcoiris.addEventListener("click", Arcoiris);
 
 let seleccionadorColorLapiz = document.querySelector("#colorLapiz");
 seleccionadorColorLapiz.addEventListener("input", nuevoColorLapiz);
+
+let seleccionadorColorFondo = document.querySelector("#colorFondo");
+seleccionadorColorFondo.addEventListener("input", nuevoColorFondo);
