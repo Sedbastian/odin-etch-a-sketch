@@ -1,3 +1,5 @@
+let ArcoirisPrendido = false;
+
 function nuevaHoja(squaresPerSide) {
     let squareSide = (100 / squaresPerSide) * .91;
     let squareSideWidthString = squareSide.toFixed(2);
@@ -18,13 +20,21 @@ function nuevaHoja(squaresPerSide) {
                 `background-color:blueviolet; 
                 width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
             gridSquare.addEventListener("mouseover", () => {
-                let randomR = Math.floor(Math.random() * 255);
-                let randomG = Math.floor(Math.random() * 255);
-                let randomB = Math.floor(Math.random() * 255);
+                let rojo, verde, azul;
+                if(ArcoirisPrendido) {
+                    rojo = Math.floor(Math.random() * 255);
+                    verde = Math.floor(Math.random() * 255);
+                    azul = Math.floor(Math.random() * 255);
+                } else {
+                    rojo = 210;
+                    verde = 105;
+                    azul = 30;
+                    }
                 gridSquare.setAttribute("style", 
-                `background-color: rgb(${randomR}, ${randomG}, ${randomB}); 
+                `background-color: rgb(${rojo}, ${verde}, ${azul}); 
                 width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`)
                 });
+
             horizontalDiv.appendChild(gridSquare);
         }
         mainDiv.appendChild(horizontalDiv);
@@ -36,9 +46,17 @@ nuevaHoja(16);
 function borrarYnuevaHoja() {
     let cuerpa = document.querySelector("body");
     cuerpa.removeChild(mainDiv);
-    squaresPerSide = parseInt(prompt("¿Cuantos pixeles por lado?", "16"));
+    let squaresPerSide = parseInt(prompt("¿Cuantos pixeles por lado?", "16"));
     nuevaHoja(squaresPerSide);
 };
 
-let boton = document.querySelector("button");
-boton.addEventListener("click", borrarYnuevaHoja);
+function Arcoiris() {
+    ArcoirisPrendido = true;
+    borrarYnuevaHoja();
+}
+
+let botonNuevaHoja = document.querySelector("#NuevaHoja");
+botonNuevaHoja.addEventListener("click", borrarYnuevaHoja);
+
+let botonArcoiris = document.querySelector("#Arcoiris");
+botonArcoiris.addEventListener("click", Arcoiris);
