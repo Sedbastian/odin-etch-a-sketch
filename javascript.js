@@ -22,8 +22,8 @@ function nuevaHoja(squaresPerSide) {
             gridSquare.setAttribute("style", 
                 `background-color: ${colorFondo}; 
                 width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
-            gridSquare.addEventListener("mousedown", (event) => {event.preventDefault()});
-            gridSquare.addEventListener("mousemove", (event) => {
+            gridSquare.addEventListener("mousedown", (event) => {
+                event.preventDefault();
                 if(event.which == 1) {
                     let rojo, verde, azul;
                     if(ArcoirisPrendido) {
@@ -40,7 +40,23 @@ function nuevaHoja(squaresPerSide) {
                         }
                 }    
             });
-
+            gridSquare.addEventListener("mouseenter", (event) => {
+                if(event.which == 1) {
+                    let rojo, verde, azul;
+                    if(ArcoirisPrendido) {
+                        rojo = Math.floor(Math.random() * 255);
+                        verde = Math.floor(Math.random() * 255);
+                        azul = Math.floor(Math.random() * 255);
+                        gridSquare.setAttribute("style", 
+                            `background-color: rgb(${rojo}, ${verde}, ${azul}); 
+                            width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
+                    } else {
+                        gridSquare.setAttribute("style", 
+                            `background-color: ${colorLapiz}; 
+                            width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
+                        }
+                }    
+            });
             horizontalDiv.appendChild(gridSquare);
         }
         mainDiv.appendChild(horizontalDiv);
