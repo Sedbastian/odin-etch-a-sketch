@@ -1,7 +1,7 @@
 let ArcoirisPrendido = false;
 let squaresPerSide = 16;
 let colorLapiz = "#d2691e";
-let colorFondo = "#8a2be2"
+let colorFondo = "#8a2be2";
 
 function nuevaHoja(squaresPerSide) {
     let squareSide = (100 / squaresPerSide) * .91;
@@ -22,22 +22,24 @@ function nuevaHoja(squaresPerSide) {
             gridSquare.setAttribute("style", 
                 `background-color: ${colorFondo}; 
                 width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
-            gridSquare.addEventListener("mouseover", () => {
-                let rojo, verde, azul;
-                if(ArcoirisPrendido) {
-                    rojo = Math.floor(Math.random() * 255);
-                    verde = Math.floor(Math.random() * 255);
-                    azul = Math.floor(Math.random() * 255);
-                    gridSquare.setAttribute("style", 
-                        `background-color: rgb(${rojo}, ${verde}, ${azul}); 
-                         width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
-                } else {
-                    gridSquare.setAttribute("style", 
-                        `background-color: ${colorLapiz}; 
-                        width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
-                    }
-                
-                });
+            gridSquare.addEventListener("mousedown", (event) => {event.preventDefault()});
+            gridSquare.addEventListener("mousemove", (event) => {
+                if(event.which == 1) {
+                    let rojo, verde, azul;
+                    if(ArcoirisPrendido) {
+                        rojo = Math.floor(Math.random() * 255);
+                        verde = Math.floor(Math.random() * 255);
+                        azul = Math.floor(Math.random() * 255);
+                        gridSquare.setAttribute("style", 
+                            `background-color: rgb(${rojo}, ${verde}, ${azul}); 
+                            width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
+                    } else {
+                        gridSquare.setAttribute("style", 
+                            `background-color: ${colorLapiz}; 
+                            width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
+                        }
+                }    
+            });
 
             horizontalDiv.appendChild(gridSquare);
         }
