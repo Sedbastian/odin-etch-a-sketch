@@ -1,4 +1,5 @@
 let ArcoirisPrendido = false;
+let lapizOscurecedorPrendido = false;
 let squaresPerSide = 16;
 let colorLapiz = "#d2691e";
 let colorFondo = "#8a2be2";
@@ -33,6 +34,13 @@ function nuevaHoja(squaresPerSide) {
                         gridSquare.setAttribute("style", 
                             `background-color: rgb(${rojo}, ${verde}, ${azul}); 
                             width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
+                    } else if(lapizOscurecedorPrendido) {
+                        let gridBackColor = event.target.style.backgroundColor;
+                        gridBackColor = gridBackColor.split(",");
+                        let rojo = parseInt(gridBackColor[0].slice(4)) - 25;
+                        let verde = parseInt(gridBackColor[1]) - 25;
+                        let azul = parseInt(gridBackColor[2]) - 25;
+                        event.target.style.backgroundColor = `rgb(${rojo}, ${verde}, ${azul})`
                     } else {
                         gridSquare.setAttribute("style", 
                             `background-color: ${colorLapiz}; 
@@ -50,6 +58,14 @@ function nuevaHoja(squaresPerSide) {
                         gridSquare.setAttribute("style", 
                             `background-color: rgb(${rojo}, ${verde}, ${azul}); 
                             width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
+                    } else if(lapizOscurecedorPrendido) {
+                        let gridBackColor = event.target.style.backgroundColor;
+                        console.log(gridBackColor);
+                        gridBackColor = gridBackColor.split(",");
+                        let rojo = parseInt(gridBackColor[0].slice(4)) - 25;
+                        let verde = parseInt(gridBackColor[1]) - 25;
+                        let azul = parseInt(gridBackColor[2]) - 25;
+                        event.target.style.backgroundColor = `rgb(${rojo}, ${verde}, ${azul})`
                     } else {
                         gridSquare.setAttribute("style", 
                             `background-color: ${colorLapiz}; 
@@ -79,6 +95,16 @@ function Arcoiris() {
     nuevaHoja(squaresPerSide);
 }
 
+function lapizOscurecedor() {
+    let cuerpa = document.querySelector("body");
+    cuerpa.removeChild(mainDiv);
+    lapizOscurecedorPrendido = !lapizOscurecedorPrendido;
+    colorFondoR = parseInt(colorFondo.slice(1,3), 16);
+    colorFondoG = parseInt(colorFondo.slice(3,5), 16);
+    colorFondoB = parseInt(colorFondo.slice(5), 16);
+    nuevaHoja(squaresPerSide);
+}
+
 function nuevoColorLapiz() {
     colorLapiz = event.target.value;
     let cuerpa = document.querySelector("body");
@@ -98,6 +124,9 @@ botonNuevaHoja.addEventListener("click", cambiarCantidadPixeles);
 
 let botonArcoiris = document.querySelector("#Arcoiris");
 botonArcoiris.addEventListener("click", Arcoiris);
+
+let botonOscurecedor = document.querySelector("#Oscurecedor");
+botonOscurecedor.addEventListener("click", lapizOscurecedor);
 
 let seleccionadorColorLapiz = document.querySelector("#colorLapiz");
 seleccionadorColorLapiz.addEventListener("input", nuevoColorLapiz);
