@@ -60,7 +60,6 @@ function nuevaHoja(squaresPerSide) {
                             width: ${squareSideWidthNumber}vmin; height: ${squareSideWidthNumber}vmin;`);
                     } else if(lapizOscurecedorPrendido) {
                         let gridBackColor = event.target.style.backgroundColor;
-                        console.log(gridBackColor);
                         gridBackColor = gridBackColor.split(",");
                         let rojo = parseInt(gridBackColor[0].slice(4)) - 25;
                         let verde = parseInt(gridBackColor[1]) - 25;
@@ -89,6 +88,9 @@ function cambiarCantidadPixeles() {
 };
 
 function Arcoiris() {
+    botonArcoiris.classList.toggle("prendido");
+    botonOscurecedor.classList.remove("prendido");
+    lapizOscurecedorPrendido = false;
     let cuerpa = document.querySelector("body");
     cuerpa.removeChild(mainDiv);
     ArcoirisPrendido = !ArcoirisPrendido;
@@ -96,6 +98,9 @@ function Arcoiris() {
 }
 
 function lapizOscurecedor() {
+    botonOscurecedor.classList.toggle("prendido");
+    botonArcoiris.classList.remove("prendido");
+    ArcoirisPrendido = false;
     let cuerpa = document.querySelector("body");
     cuerpa.removeChild(mainDiv);
     lapizOscurecedorPrendido = !lapizOscurecedorPrendido;
