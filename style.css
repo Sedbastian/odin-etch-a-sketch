@@ -7,9 +7,27 @@ body {
 
 button {
     opacity: 0.6;
+    padding: 4px;
+    margin: 4px;
+    border: 8px ridge;
+    font-size: 16px;
+    border-color: orange;
+    background-color: palegoldenrod;
+    border-radius: 8px;
+    transition-duration: 1s;
 }
 
-button.prendido{
+button.prendido {
     opacity: 1;
+    border: 8px outset;
+    border-color: orange;
 }
 
+button#NuevaHoja {
+    opacity: 1;
+    background-color: lightblue;
+}
+
+button#NuevaHoja:active {
+    border: 8px outset;
+}

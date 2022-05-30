@@ -1,6 +1,6 @@
 let ArcoirisPrendido = false;
 let lapizOscurecedorPrendido = false;
-let squaresPerSide = 16;
+let squaresPerSide = 32;
 let colorLapiz = "#d2691e";
 let colorFondo = "#8a2be2";
 
@@ -15,8 +15,8 @@ function nuevaHoja(squaresPerSide) {
     cuerpi.appendChild(mainDiv);
 
     for (let j = 1; j < squaresPerSide + 1; j++) {
-        let horizontalDiv = document.createElement("div");
-        horizontalDiv.setAttribute("style", "display: flex; flex-direction: column;");
+        let verticalDiv = document.createElement("div");
+        verticalDiv.setAttribute("style", "display: flex; flex-direction: column;");
         
             for (let i = 1; i < squaresPerSide + 1; i++) {
                 let gridSquare = document.createElement("div");
@@ -75,9 +75,9 @@ function nuevaHoja(squaresPerSide) {
                             }
                     }    
                 });
-                horizontalDiv.appendChild(gridSquare);
+                verticalDiv.appendChild(gridSquare);
         }
-        mainDiv.appendChild(horizontalDiv);
+        mainDiv.appendChild(verticalDiv);
     };
 };
 
@@ -94,31 +94,22 @@ function Arcoiris() {
     botonArcoiris.classList.toggle("prendido");
     botonOscurecedor.classList.remove("prendido");
     lapizOscurecedorPrendido = false;
-    // let cuerpa = document.querySelector("body");
-    // cuerpa.removeChild(mainDiv);
     ArcoirisPrendido = !ArcoirisPrendido;
-    // nuevaHoja(squaresPerSide);
-}
+    }
 
 function lapizOscurecedor() {
     botonOscurecedor.classList.toggle("prendido");
     botonArcoiris.classList.remove("prendido");
     ArcoirisPrendido = false;
-    // let cuerpa = document.querySelector("body");
-    // cuerpa.removeChild(mainDiv);
     lapizOscurecedorPrendido = !lapizOscurecedorPrendido;
     colorFondoR = parseInt(colorFondo.slice(1,3), 16);
     colorFondoG = parseInt(colorFondo.slice(3,5), 16);
     colorFondoB = parseInt(colorFondo.slice(5), 16);
-    // nuevaHoja(squaresPerSide);
-}
+    }
 
 function nuevoColorLapiz() {
     colorLapiz = event.target.value;
-    // let cuerpa = document.querySelector("body");
-    // cuerpa.removeChild(mainDiv);
-    // nuevaHoja(squaresPerSide);
-}
+    }
 
 function nuevoColorFondo() {
     colorFondo = event.target.value;
