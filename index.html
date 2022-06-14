@@ -4,17 +4,36 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="javascript.js" defer></script>
-    <title>Etch-a-Sketch</title>
+    <title>Dibujar Pixeles</title>
 </head>
 <body>
-    <button id="NuevaHoja">Borrar y ¿Pixeles por lado?</button>
-    <button id="Arcoiris">¿Arcoiris?</button>
-    <button id="Oscurecedor">¿Lapiz Oscurecedor?</button>
+        <button type="button" id="NuevaHoja">Borrar y ¿Pixeles por lado?</button>
+        <button type="button" id="Arcoiris">¿Arcoiris?</button>
+        <button type="button" id="Oscurecedor">¿Lapiz Oscurecedor?</button>
+    
+        <div>
+            <label for="lapizComun">Lápiz Común</label>
+            <input type="radio" id="lapizComun" name="tipoLapiz" value="lapizComun" checked>
+        </div>
 
-    <label for="colorLapiz">Color del lapiz:</label>
-    <input type="color" id="colorLapiz" name="colorLapiz" value="#d2691e">
+        <div>
+            <label for="lapizArcoiris">Lápiz Arcoiris</label>
+            <input type="radio" id="lapizArcoiris" name="tipoLapiz" value="lapizArcoiris">
+        </div>
 
-    <label for="colorFondo">Borrar y Cambiar Color del Fondo:</label>
-    <input type="color" id="colorFondo" name="colorFondo" value="#8a2be2">
+        <div>
+            <label for="lapizOscurecedor">Lápiz Oscurecedor</label>
+            <input type="radio" id="lapizOscurecedor" name="tipoLapiz" value="lapizOscurecedor">
+        </div>
+
+        <div>
+            <label for="colorLapiz">Color del lapiz:</label>
+            <input type="color" id="colorLapiz" name="colorLapiz" value="#d2691e">
+        </div>
+    
+        <div>
+            <label for="colorFondo">Borrar y Cambiar Color del Fondo:</label>
+            <input type="color" id="colorFondo" name="colorFondo" value="#8a2be2">
+        </div>
 </body>
 </html>
