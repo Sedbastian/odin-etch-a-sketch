@@ -124,14 +124,8 @@ botonNuevaHoja.addEventListener("click", cambiarCantidadPixeles);
 let botonArcoiris = document.querySelector("#Arcoiris");
 botonArcoiris.addEventListener("click", Arcoiris);
 
-let radioArcoiris = document.querySelector("#lapizArcoiris");
-radioArcoiris.addEventListener("change", Arcoiris);
-
 let botonOscurecedor = document.querySelector("#Oscurecedor");
 botonOscurecedor.addEventListener("click", lapizOscurecedor);
-
-let radioOscurecedor = document.querySelector("#lapizOscurecedor")
-radioOscurecedor.addEventListener("change", lapizOscurecedor);
 
 let seleccionadorColorLapiz = document.querySelector("#colorLapiz");
 seleccionadorColorLapiz.addEventListener("input", nuevoColorLapiz);
